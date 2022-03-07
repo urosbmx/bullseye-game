@@ -29,6 +29,13 @@ struct ContentView: View {
                     .bold()
             }
             .padding(.horizontal)
+            HStack{
+                Button("Hit!!") {
+//                    conver from double to int
+                    let convert:Int = Int(sliderValie)
+                    print(convert)
+                }
+            }
             
         }
         
