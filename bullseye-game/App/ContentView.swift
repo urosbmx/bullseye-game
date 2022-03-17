@@ -16,10 +16,11 @@ struct ContentView: View {
         
         VStack{
             HStack{
-                Text("🎯🎯🎯🎯\nPut the bullseys as close as you can to".uppercased())
+                Text("🎯🎯🎯🎯\nPut the bullseye as close as you can to".uppercased())
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
+                    
 
             }
             HStack{
@@ -38,13 +39,13 @@ struct ContentView: View {
             HStack{
                 Button("Hit!!") {
                     alertVisible = true
-                    game.checkWin(targer: gessNumber,win: Int(sliderValie))
 
                 }
               
                 .alert(isPresented: $alertVisible){
-                    Alert (title: Text("Testiram"),
-                           message: Text("Ovo je proba"),
+                    
+                    Alert (title: Text("Hello there"),
+                           message: Text("The slider value is \(Int(sliderValie)).\n" + "You scored \(self.game.points(sliderValue: Int(sliderValie.rounded())))"),
                            dismissButton: .default(Text("CLOSE")))
                 }
                 
