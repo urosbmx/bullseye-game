@@ -8,16 +8,22 @@
 import SwiftUI
 struct ContentView: View {
     @State private var sliderValie:Double = 50.0
+    @State private var  alertVisible: Bool = false
+    @State private var game: Game = Game()
+    @State private var gessNumber: Int = Game().targer
+    
     var body: some View {
+        
         VStack{
             HStack{
                 Text("🎯🎯🎯🎯\nPut the bullseys as close as you can to".uppercased())
                     .font(.subheadline)
                     .multilineTextAlignment(.center)
                     .padding(.bottom)
+
             }
             HStack{
-                Text("50")
+                Text(String(gessNumber))
                     .font(.title)
                     .bold()
             }
@@ -31,14 +37,22 @@ struct ContentView: View {
             .padding(.horizontal)
             HStack{
                 Button("Hit!!") {
-//                    conver from double to int
-                    let convert:Int = Int(sliderValie)
-                    print(convert)
+                    alertVisible = true
+                    game.checkWin(targer: gessNumber,win: Int(sliderValie))
+
                 }
+              
+                .alert(isPresented: $alertVisible){
+                    Alert (title: Text("Testiram"),
+                           message: Text("Ovo je proba"),
+                           dismissButton: .default(Text("CLOSE")))
+                }
+                
+
             }
             
         }
-        
+       
     }
 }
 struct ContentView_Previews: PreviewProvider {
