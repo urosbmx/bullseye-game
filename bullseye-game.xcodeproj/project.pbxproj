@@ -67,6 +67,7 @@
 		6796A77227D6A2AF00CC395F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67BC62AD27D69397001AC4CE /* ContentView.swift */,
 				67E8D17827F60EE700D75B91 /* InformationView.swift */,
 			);
 			path = Views;
@@ -76,7 +77,6 @@
 			isa = PBXGroup;
 			children = (
 				67BC62AB27D69397001AC4CE /* bullseye_gameApp.swift */,
-				67BC62AD27D69397001AC4CE /* ContentView.swift */,
 				67BC62AF27D69397001AC4CE /* Assets.xcassets */,
 			);
 			path = App;
