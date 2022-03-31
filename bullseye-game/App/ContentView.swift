@@ -18,17 +18,7 @@ struct ContentView: View {
             Color("Background").ignoresSafeArea(.all)
             VStack{
                 HStack{
-                    Text("🎯🎯🎯🎯\nPut the bullseye as close as you can to".uppercased())
-                        .font(.subheadline)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom)
-                        
-
-                }
-                HStack{
-                    Text(String(gessNumber))
-                        .font(.title)
-                        .bold()
+                    InformationView()
                 }
                 HStack{
                         Text("1")
@@ -44,28 +34,39 @@ struct ContentView: View {
 
                     }
                     .padding(20.0)
-                    .background(.blue)
-                    .foregroundColor(.white)
+                    .background(
+                        ZStack {
+
+                            Color("ButtonColor")
+                            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
+                        }
+                    )
+                    .foregroundColor(Color("FontButtonColor"))
                     .cornerRadius(21)
                     .font(.title3)
-                   
+
                     .alert(isPresented: $alertVisible){
-                        
+
                         Alert (title: Text("Hello there"),
                                message: Text("The slider value is \(Int(sliderValie)).\n" + "You scored \(self.game.points(sliderValue: Int(sliderValie.rounded())))"),
-                               dismissButton: .default(Text("CLOSE")))
+                               dismissButton: .default(Text("CLOSE"))
+                        )
                     }
-                    
+
 
                 }
+
                 
             }
             
         }
+        .foregroundColor(Color("FontColor"))
     }
+        
 }
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        ContentView().preferredColorScheme(.dark)
         ContentView()
     }
 }
