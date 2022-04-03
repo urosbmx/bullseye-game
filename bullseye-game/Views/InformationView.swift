@@ -8,26 +8,39 @@
 import SwiftUI
 
 struct InformationView: View {
-    @State private var game: Game = Game()
-    @State private var gessNumber: Int = Game().targer
+    var text: String
     var body: some View {
         VStack{
-            Text("🎯🎯🎯🎯\nPut the bullseye as close as you can to".uppercased())
+            Text(text.uppercased())
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-            
-            Text(String(gessNumber))
-                .font(.title)
-                .bold()
+                
+
         }
 
             
     }
 }
 
+struct BigNumberText: View{
+    @State private var game: Game = Game()
+    @State private var gessNumber: Int = Game().targer
+    var text: String
+    var body: some View{
+        VStack{
+            Text(text)
+                .kerning(-1.0)
+                .font(.largeTitle)
+                .bold()
+                .fontWeight(.black)
+        }
+    }
+}
+
 struct InformationView_Previews: PreviewProvider {
     static var previews: some View {
-        InformationView()
+        InformationView(text: "🎯🎯🎯🎯\nPut the bullseye as close as you can to")
+        BigNumberText(text: "999")
     }
 }
