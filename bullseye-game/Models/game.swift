@@ -9,8 +9,8 @@ import Foundation
 
 struct Game{
     var targer = Int.random(in: 1..<100)
-    var score = 0
-    var rond = 1
+    var score  = 0
+    var rond   = 1
     
     
     
